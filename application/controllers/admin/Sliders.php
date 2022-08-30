@@ -42,14 +42,12 @@ class Sliders extends CI_Controller {
 		$this->load->library('session');
 		$this->load->library('alias');
 		$this->form_validation->set_rules('name', 'Tên hình ảnh', 'required');
-		$this->form_validation->set_rules('price', 'Giá', 'required');
 		$this->form_validation->set_rules('detail', 'Chi tiết', 'required');
 		if ($this->form_validation->run() == TRUE)
 		{
 			$mydata= array(
 				'name' =>$_POST['name'],
 				'spname'=>$_POST['name'],
-				'price'=>$_POST['price'],
 				'detail'=>$_POST['detail'],
 				'type' => 0,
 				'link' =>$string=$this->alias->str_alias($_POST['name']),
@@ -69,29 +67,6 @@ class Sliders extends CI_Controller {
 			$file  = $_FILES['image_list'];
 			$count = count($file['name']);
 			$img = '';
-			$this->load->library('upload', $config);
-			for ($i = 0; $i <= $count-1; $i++) {
-				$_FILES['userfile']['name']     = $file['name'][$i];  //khai báo tên của file thứ i
-				$_FILES['userfile']['type']     = $file['type'][$i]; //khai báo kiểu của file thứ i
-				$_FILES['userfile']['tmp_name'] = $file['tmp_name'][$i]; //khai báo đường dẫn tạm của file thứ i
-				$_FILES['userfile']['error']    = $file['error'][$i]; //khai báo lỗi của file thứ i
-				$_FILES['userfile']['size']     = $file['size'][$i]; //khai báo kích cỡ của file thứ i
-				if ($this->upload->do_upload()) {
-					$data = $this->upload->data();
-					$img .= $data['file_name'] . '#';
-				}
-			}
-			$name_array = explode('#',$img);
-			if(count($name_array) >= 3){
-				$mydata['img1']=$name_array[0];
-				$mydata['img2']=$name_array[1];
-				$mydata['img3']=$name_array[2];
-			}else if(count($name_array) == 2){
-				$mydata['img1']=$name_array[0];
-				$mydata['img2']=$name_array[1];
-			}else{
-				$mydata['img1']=$name_array[0];
-			}
 			$this->load->library('upload', $config);
 			if($this->upload->do_upload('img')){
 				$data = $this->upload->data();
@@ -122,14 +97,12 @@ class Sliders extends CI_Controller {
 		$this->load->library('session');
 		$this->load->library('alias');
 		$this->form_validation->set_rules('name', 'Tên sản phẩm', 'required');
-		$this->form_validation->set_rules('price', 'Giá', 'required');
 		$this->form_validation->set_rules('detail', 'Chi tiết', 'required');
 		if ($this->form_validation->run() == TRUE)
 		{
 			$mydata= array(
 				'name' =>$_POST['name'],
 				'spname'=>$_POST['name'],
-				'price'=>$_POST['price'],
 				'detail'=>$_POST['detail'],
 				'type' => 0,
 				'modified'=>$today,
@@ -146,30 +119,7 @@ class Sliders extends CI_Controller {
 			$file  = $_FILES['image_list'];
 			$count = count($file['name']);
 			$img = '';
-			$this->load->library('upload', $config);
-			for ($i = 0; $i <= $count-1; $i++) {
-				$_FILES['userfile']['name']     = $file['name'][$i];  //khai báo tên của file thứ i
-				$_FILES['userfile']['type']     = $file['type'][$i]; //khai báo kiểu của file thứ i
-				$_FILES['userfile']['tmp_name'] = $file['tmp_name'][$i]; //khai báo đường dẫn tạm của file thứ i
-				$_FILES['userfile']['error']    = $file['error'][$i]; //khai báo lỗi của file thứ i
-				$_FILES['userfile']['size']     = $file['size'][$i]; //khai báo kích cỡ của file thứ i
-				if ($this->upload->do_upload()) {
-					$data = $this->upload->data();
-					$img .= $data['file_name'] . '#';
-				}
-			}
-			$name_array = explode('#',$img);
-			if(count($name_array) >= 3){
-				$mydata['img1']=$name_array[0];
-				$mydata['img2']=$name_array[1];
-				$mydata['img3']=$name_array[2];
-			}
-			else if(count($name_array) == 2){
-				$mydata['img1']=$name_array[0];
-				$mydata['img2']=$name_array[1];
-			}else{
-				$mydata['img1']=$name_array[0];
-			}
+
 			$this->load->library('upload', $config);
 			if($this->upload->do_upload('img')){
 				$data = $this->upload->data();
@@ -178,22 +128,10 @@ class Sliders extends CI_Controller {
 			$this->load->helper('file');
 			$this->Msliders->slider_update($mydata, $id);
 			$filename= $this->data['row']['img'];
-			$filename1= $this->data['row']['img1'];
-			$filename2= $this->data['row']['img2'];
-			$filename3= $this->data['row']['img3'];
-			if(!empty($filename1)) {
-				unlink("public/assets/images/$filename1");
-			}
-			if(!empty($filename2)) {
-				unlink("public/assets/images/$filename2");
-			}
-			if(!empty($filename3)) {
-				unlink("public/assets/images/$filename3");
-			}
 			if(!empty($filename) && !empty($mydata['img'])) {
 				unlink("public/assets/images/$filename");
 			}
-			$message = "Cập nhật sản phẩm thành công";
+			$message = "Cập nhật ảnh thành công";
 			$this->session->set_flashdata('success', $message);
 			redirect('admin/sliders/','refresh');
 		}
@@ -246,18 +184,6 @@ class Sliders extends CI_Controller {
 		$row=$this->Msliders->slider_trash_detail($id);
 		$this->load->helper('file');
 		$filename= $row['img'];
-		$filename1= $row['img1'];
-		$filename2= $row['img2'];
-		$filename3= $row['img3'];
-		if(!empty($filename1)) {
-			unlink("public/assets/images/$filename1");
-		}
-		if(!empty($filename2)) {
-			unlink("public/assets/images/$filename2");
-		}
-		if(!empty($filename3)) {
-			unlink("public/assets/images/$filename3");
-		}
 		if(!empty($filename)) {
 			unlink("public/assets/images/$filename");
 		}

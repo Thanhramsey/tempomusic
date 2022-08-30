@@ -21,8 +21,8 @@
 							<div class="col-md-9">
 								<!--ND-->
 								<div class="form-group">
-									<label>Tên sản phẩm<span class="maudo">(*)</span></label>
-									<input type="text" name="name" placeholder="Tên sản phẩm" class="form-control" value="<?php echo $row['name'] ?>">
+									<label>Tên ảnh<span class="maudo">(*)</span></label>
+									<input type="text" name="name" placeholder="Tên ảnh" class="form-control" value="<?php echo $row['name'] ?>">
 									<div class="error" id="password_error"><?php echo form_error('name') ?></div>
 								</div>
 								<div class="form-group">
@@ -36,17 +36,6 @@
 									<div class="error" id="password_error"><?php echo form_error('img') ?></div>
 								</div>
 								<div class="form-group">
-									<label>Hình ảnh thêm<span style="color:red;font-style:italic">(* tối đa 3 ảnh)</span></label>
-									<input type="file"  id="image_list" name="image_list[]" class="mul-file" multiple onchange="loadMulFile(event)" style="display:none">
-									<label for="image_list" class="btn-upload-img">Chọn file</label>
-									<div class="anh" style ="width:100%; height:280px; border:1px dashed black;border-radius:10px; padding: 5px; margin-bottom:10px">
-										<!-- Chứa ảnh ở đây -->
-										<img style="width:32%;margin-right:5px;border-right:1px solid black; height:100%;border-radius:10px" id="output1" src="<?php echo base_url() ?>public/assets/images/<?php echo $row['img1'] ?>" />
-										<img style="width:32%;margin-right:5px;border-right:1px solid black; height:100%;border-radius:10px" id="output2" src="<?php echo base_url() ?>public/assets/images/<?php echo $row['img2'] ?>" />
-										<img style="width:32%;margin-right:5px; height:100%;border-radius:10px" id="output3" src="<?php echo base_url() ?>public/assets/images/<?php echo $row['img3'] ?>" />
-									</div>
-								</div>
-								<div class="form-group">
 									<label>Chi tiết sản phẩm<span class = "maudo">(*)</span></label>
 									<textarea name="detail" id="detail" class="form-control"><?php echo $row['detail'] ?></textarea>
 									<script>
@@ -56,10 +45,6 @@
 								<!--/.ND-->
 							</div>
 							<div class="col-md-3">
-								<div class="form-group">
-									<label>Giá <span style="color:red;font-style:italic">(* Để 0 nếu chưa có giá)</span></label>
-									<input name="price" class="form-control" type="number" value="<?php echo $row['price'] ?>" min="0" step="1" max="1000000000">
-								</div>
 								<div class="form-group">
 									<label>Trạng thái</label>
 									<select name="status" class="form-control">

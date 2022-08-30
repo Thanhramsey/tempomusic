@@ -2,7 +2,7 @@
 <body>
 	<div style="color: #000;">
 		<p>Xin chào ,</p>
-		<p>Bạn vừa có 1 liên hệ tại <strong>tonthedan.com.vn</strong>!</p>
+		<p>Bạn vừa có 1 liên hệ tại <strong>tempomusic.com.vn</strong>!</p>
 		<p>Hãy liên lạc lại với khác hàng bạn nhé.</p>
 		<div>
 			<div style="font-size:18px;padding:5px;background-color:#4792e6;color:#fff"><strong>Thông tin Khách hàng</strong></div>

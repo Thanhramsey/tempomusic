@@ -45,12 +45,10 @@
 
             <!--Nav Links-->
             <div class="collapse navbar-collapse" id="megaone">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-link scroll line" href="#slider-section">Trang chủ</a>
-                    <a class="nav-link scroll line" href="#about">Về chúng tôi</a>
-                    <a class="nav-link scroll line" href="#portfolio">Khóa học</a>
+				<div class="navbar-nav ml-auto">
+                    <a class="nav-link line" href="<?php echo base_url() ?>trang-chu">Trang chủ</a>
                     <a class="nav-link line" href="<?php echo base_url() ?>sanpham">Hình ảnh</a>
-                    <a class="nav-link scroll line" href="#blog">Tin tức</a>
+                    <a class="nav-link line" href="<?php echo base_url() ?>tin-tuc">Tin tức</a>
                     <a href="#contact" class="btn btn-large btn-rounded btn-pink nav-button scroll">Liên hệ ngay</a>
                 </div>
             </div>
@@ -85,19 +83,13 @@
                 </a>
                 <ul class="navbar-nav text-capitalize">
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#slider-section">Trang chủ</a>
+                        <a class="nav-link" href="<?php echo base_url() ?>trang-chu">Trang chủ</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url() ?>sanpham">Hình ảnh</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll" href="#about">Về chúng tôi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll" href="#portfolio">Khóa học</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link scroll" href="#pricing">Pricing Plans</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link scroll" href="#blog">Tin tức</a>
+                        <a class="nav-link" href="<?php echo base_url() ?>tin-tuc">Tin tức</a>
                     </li>
                     <li class="get-started-btn">
 					<a class="nav-link scroll" href="#contact">Liên hệ</a>
@@ -119,71 +111,7 @@
     <!-- End side menu -->
 
     <!--Get Started Model Popup-->
-    <div class="quote-content hidden animated-modal" id="animatedModal">
-        <!--Heading-->
-        <div class="pb-md-5 p-0 text-center">
-            <span class="text-pink font-weight-200 font-20">We are MegaOne Company</span>
-            <h2 class="main-font font-weight-600 text-white mt-2">Lets start your <span class="text-pink js-rotating">project, website</span></h2>
-        </div>
-        <!--Contact Form-->
-        <form class="contact-form" id="modal-contact-form-data">
-            <div class="row">
-                <!--Result-->
-                <div class="col-12" id="quote_result"></div>
 
-                <!--Left Column-->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input class="form-control" id="quote_name" name="quoteName" placeholder="Name" required=""
-                               type="text">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="quote_contact" name="userPhone" placeholder="Contact #" required=""
-                               type="text">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="quote_type" name="projectType" placeholder="Project type" required=""
-                               type="text">
-                    </div>
-                </div>
-
-                <!--Right Column-->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input class="form-control" id="quote_email" name="userEmail" placeholder="Email" required=""
-                               type="email">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="quote_address" name="userAddress" placeholder="City / Country"
-                               required="" type="text">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="quote_budget" name="quoteBudget" placeholder="Budget" required=""
-                               type="text">
-                    </div>
-                </div>
-
-                <!--Full Column-->
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <textarea class="form-control" id="userMessage"
-                                  name="userMessage"  placeholder="Please explain your project in detail."></textarea>
-                    </div>
-                </div>
-
-                <!--Button-->
-                <div class="col-md-12">
-                    <div class="form-check">
-                        <label class="checkbox-lable font-weight-200 font-16">Contact by phone is preferred
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <a href="javascript:void(0)" class="btn btn-medium btn-rounded btn-pink modal_contact_btn" id="quote_submit_btn">Submit Now</a>
-                </div>
-            </div>
-        </form>
-    </div>
 </header>
 <!-- END HEADER -->
 
@@ -450,7 +378,7 @@
     </ul>
 </div>
 <!--scroll down-->
-<a href="#about" class="scroll-down link scroll main-font font-15 animate">Scroll Down <i class="fas fa-long-arrow-alt-down"></i></a>
+
 <!-- END MAIN SLIDER -->
 <section class="menu portfolio-three pb-0" id="menu">
     <div class="container">
@@ -538,40 +466,42 @@
                     <div class="row">
                         <!-- Submission Popup -->
                         <div class="col-12">
-                            <div class="col-sm-12 px-0" id="result"></div>
+                            <div class="col-sm-12 px-0" id="result">
+							<h6 class="text-success" style="display:none">Thông tin của bạn đã được lưu lại , chúng tôi sẽ liên lạc lại với bạn sớm nhất.</h6>
+							</div>
                         </div>
 
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="First Name:" required="" id="first_name" name="firstName">
+                                <input class="form-control" type="text" placeholder="Tên:" required="" id="name" name="name">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-								<select name="status" class="form-control" class="form-control" type="text" placeholder="Last Name:" required="" id="last_name" name="lastName">
-										<option value="0">Ca 2-4-6</option>
-										<option value="1">Ca 3-5-7</option>
-										<option value="2">Ca nào cũng được</option>
+								<select name="status" class="form-control" class="form-control"  required="" id="ca" name="ca">
+										<option value="Ca 2-4-6">Ca 2-4-6</option>
+										<option value="Ca 3-5-7">Ca 3-5-7</option>
+										<option value="Ca nào cũng được">Ca nào cũng được</option>
 								</select>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email:" required="" id="email" name="userEmail">
+                                <input class="form-control" type="email" placeholder="Email:" required="" id="email" name="email">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-                                <input class="form-control" type="tel" placeholder="Phone:" id="phone" name="userPhone">
+                                <input class="form-control" type="phone" placeholder="Số ĐT:" id="phone" name="phone">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Message" id="message" name="userMessage"></textarea>
+                                <textarea class="form-control" placeholder="Lời nhắn" id="description" name="description"></textarea>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="button" class="btn btn-medium green-long-btn rounded-pill w-100 btn-pink mt-4 contact_btn" id="submit_btn">SUBMIT REQUEST</button>
+                            <button type="button" onclick="saveLienHe()" class="btn btn-medium green-long-btn rounded-pill w-100 btn-pink mt-4 contact_btn"><i class="fa fa-spinner fa-spin mr-2 d-none" aria-hidden="true"></i>Gửi</button>
                         </div>
                     </div>
                 </form>
@@ -618,6 +548,18 @@
 <!-- END FOOTER -->
 
 <!--START SCROLL TOP-->
+<audio id="myAudio" controls hidden>
+
+  <source src="<?php echo base_url() ?>public/music/song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<!-- <audio autoplay>
+    <source src="<?php echo base_url() ?>public/music/song.mp3" type="audio/mp3">
+</audio> -->
+<!-- END FOOTER -->
+
+<!--START SCROLL TOP-->
+<btn onclick="test()" id="btn_music" class="music-top"><i id ="icon" class="fa fa-music"></i></btn>
 <div class="go-top"><i class="fas fa-angle-up"></i><i class="fas fa-angle-up"></i></div>
 <!--END SCROLL TOP-->
 
@@ -654,5 +596,65 @@
 <!-- custom script -->
 <script src="<?php echo base_url() ?>public/vendor/js/contact_us.js"></script>
 <script src="<?php echo base_url() ?>public/corporate-agency/js/script.js"></script>
+<script>
+	function test(){
+		var button = document.getElementById("btn_music");
+		var icon = document.getElementById("icon");
+		var x = document.getElementById("myAudio");
+		if(x.paused){
+			x.play();
+			icon.classList.toggle('fa-play');
+		}else{
+			x.pause();
+			icon.classList.toggle('fa-pause');
+		}
+	}
+
+</script>
+<script>
+		function saveLienHe(){
+			var strurl = "<?php echo base_url(); ?>" + 'lienhe/insertCmt';
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var phone = $("#phone").val();
+			var ca = $("#ca").val();
+			var description = $("#description").val();
+			$(".contact_btn i").removeClass('d-none');
+			var validate = false;
+			if (name === "" ) {
+				$("#name").focus();
+			} else if (phone == "") {
+				$("#phone").focus();
+			}else if (description == "") {
+				$("#description").focus();
+			}else{
+				validate = true;
+			}
+			if (validate) {
+				jQuery.ajax({
+					url: strurl,
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						name:name,
+						phone:phone,
+						email:email,
+						ca:ca,
+						content:description
+					},
+					success: function(data) {
+						// window.location.reload(true);
+						$(".text-success").show();
+						$("#name").val("");
+						$("#phone").val("");
+						$("#email").val("");
+						$("#description").val("");
+						$(".contact_btn_1 i").addClass('d-none');
+						setTimeout(function() { $(".text-success").hide(); }, 3000);
+					}
+				});
+			}
+		}
+	</script>
 </body>
 </html>

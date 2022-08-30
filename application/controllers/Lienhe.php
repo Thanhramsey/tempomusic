@@ -47,7 +47,7 @@ class Lienhe extends CI_Controller {
 		$name=$_POST['name'];
 		$email=$_POST['email'];
 		$phone=$_POST['phone'];
-		$content=$_POST['description'];
+		$content = "Ca học: ".$_POST['ca'].""    .$_POST['content']." ";
 		$mydata= array(
 			'fullname'=>$name,
 			'email'=>$email,
@@ -79,9 +79,9 @@ class Lienhe extends CI_Controller {
 
 		$email = $config_data['mail_noreply'];
 
-		$this->email->from($config_data['mail_smtp'], 'Hợp tác xã Tiên Phong');
+		$this->email->from($config_data['mail_smtp'], 'Tempo music');
 		$this->email->to($email);
-		$this->email->subject('Hợp tác xã Tiên Phong thông báo !!');
+		$this->email->subject('Tempo music thông báo !!');
 
 		$body = $this->load->view('frontend/modules/email',$mydata,TRUE);
 		$this->email->message($body);
